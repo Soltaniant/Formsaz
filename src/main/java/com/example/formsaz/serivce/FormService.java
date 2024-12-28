@@ -6,6 +6,7 @@ import com.example.formsaz.model.dto.*;
 import com.example.formsaz.repository.FormRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -54,11 +55,11 @@ public class FormService {
                 .toList();
     }
 
+    @Transactional
     public List<FieldResponseDto> updateFieldsByFormId(Long id, List<FieldRequestDto> fieldDtos) {
         Form form = getForm(id);
         form.setFields(fieldDtos.stream().map(FormMapper::toEntity).toList());
-        Form updatedForm = formRepository.save(form);
-        return updatedForm.getFields().stream()
+        return form.getFields().stream()
                 .map(FormMapper::toResponse)
                 .toList();
     }
