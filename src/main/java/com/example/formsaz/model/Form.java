@@ -2,7 +2,6 @@ package com.example.formsaz.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Setter;
 
 import java.util.List;
 
@@ -14,12 +13,13 @@ public class Form {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
+    private String name;
 
-    @Setter
     private boolean published;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "form_id")
     private List<Field> fields;
+
+    private String submitUrl;
 }
