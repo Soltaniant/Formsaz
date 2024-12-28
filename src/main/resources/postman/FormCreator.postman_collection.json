@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "9d41c970-47ae-498c-b1db-c098085b5c5f",
+		"name": "FormCreator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22822393"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/forms",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"forms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Published",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/forms/published",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"forms",
+						"published"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Form",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/forms",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"forms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete From",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/forms",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"forms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\": \"Sample fjdsakjf\",\n   \"published\": true,\n   \"submitUrl\": \"google.com\",\n   \"fields\": [\n      {\n        \"name\": \"name 1\",\n         \"label\": \"This is Field 1\",\n         \"type\": \"TEXT\",\n         \"defaultValue\": \"this is a default text ...\"\n      },\n            {\n        \"name\": \"name 2\",\n         \"label\": \"This is Field 1\",\n         \"type\": \"TEXT\"\n      }\n   ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/forms",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"forms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update From",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\": \"edited first title\",\n   \"published\": false,\n   \"submitUrl\": \"googlejfksadjfl.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/forms/1",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"forms",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Form Fields",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9090/api/forms",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"forms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update From Fields",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"edited 1\",\n        \"label\": \"This is Field 1\",\n        \"type\": \"CHECKBOX\",\n        \"defaultValue\": \"1\"\n    },\n    {\n        \"name\": \"edif jdskfjasfj kjdskaflj laskdfdsklajfsdlaj fklsajfklsd jfj slajf dlksjf daslkjf ldaksf\",\n        \"label\": \"This is Field 1\",\n        \"type\": \"TEXT\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/forms/1/fields",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"forms",
+						"1",
+						"fields"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Toggle Publish",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"edited 1\",\n        \"label\": \"This is Field 1\",\n        \"type\": \"CHECKBOX\",\n        \"defaultValue\": \"1\"\n    },\n    {\n        \"name\": \"edif jdskfjasfj kjdskaflj laskdfdsklajfsdlaj fklsajfklsd jfj slajf dlksjf daslkjf ldaksf\",\n        \"label\": \"This is Field 1\",\n        \"type\": \"TEXT\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9090/api/forms/1/fields",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"forms",
+						"1",
+						"fields"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
