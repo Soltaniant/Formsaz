@@ -22,14 +22,20 @@ public class FormController {
         return ResponseEntity.ok(formService.getAllForms());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<FormResponseDto> getFormById(@PathVariable Long id) {
+        return ResponseEntity.ok(formService.getFormById(id));
+    }
+
     @PostMapping
     public ResponseEntity<FormResponseDto> createForm(@RequestBody CreateFormRequestDto formDto) {
         return ResponseEntity.ok(formService.createForm(formDto));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<FormResponseDto> getFormById(@PathVariable Long id) {
-        return ResponseEntity.ok(formService.getFormById(id));
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteForm(@PathVariable Long id) {
+        formService.deleteForm(id);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("/{id}")
@@ -38,10 +44,14 @@ public class FormController {
         return ResponseEntity.ok(formService.updateForm(id, updatedFormDto));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteForm(@PathVariable Long id) {
-        formService.deleteForm(id);
-        return ResponseEntity.noContent().build();
+    @PutMapping("/{id}/publish")
+    public ResponseEntity<FormResponseDto> togglePublishForm(@PathVariable Long id) {
+        return ResponseEntity.ok(formService.togglePublishForm(id));
+    }
+
+    @GetMapping("/published")
+    public ResponseEntity<List<FormResponseDto>> getPublishedForms() {
+        return ResponseEntity.ok(formService.getPublishedForms());
     }
 
     @GetMapping("/{id}/fields")
@@ -53,15 +63,5 @@ public class FormController {
     public ResponseEntity<List<FieldResponseDto>> updateFieldsByFormId(@PathVariable Long id,
                                                                        @RequestBody List<FieldRequestDto> fieldDtos) {
         return ResponseEntity.ok(formService.updateFieldsByFormId(id, fieldDtos));
-    }
-
-    @PutMapping("/{id}/publish")
-    public ResponseEntity<FormResponseDto> togglePublishForm(@PathVariable Long id) {
-        return ResponseEntity.ok(formService.togglePublishForm(id));
-    }
-
-    @GetMapping("/published")
-    public ResponseEntity<List<FormResponseDto>> getPublishedForms() {
-        return ResponseEntity.ok(formService.getPublishedForms());
     }
 }
